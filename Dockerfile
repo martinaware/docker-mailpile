@@ -1,19 +1,19 @@
-FROM alpine:edge
-MAINTAINER Rafael Römhild <rafael@roemhild.de>
+FROM resin/rpi-raspbian:jessie-20160831
 
 ENV VERSION 0.5.2
 
 # Install requirements
-RUN apk add --update-cache \
+RUN apt-get update && \
+    apt-get install \
         git \
-        zlib \
-        gnupg1 \
-        py-pip \
+        zlib1g \
+        gnupg2 \
         openssl \
-        py-jinja2 \
-        py-libxml2 \
-        py-libxslt \
-        py-lxml \
+        python-pip \
+        python-jinja2 \
+        python-libxml2 \
+        python-libxslt1 \
+        python-lxml \
         ca-certificates
 
 # Get Mailpile from github
